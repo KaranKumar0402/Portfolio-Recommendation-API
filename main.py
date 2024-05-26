@@ -37,7 +37,7 @@ def process_result(findf):
     weights = np.array(weights)
 
     output_port_ar = round(np.sum(weights*output_returns)*100, 2)
-    return {"stocks":output_ticker, "returns":output_returns, "portfolio_return":output_port_ar}
+    return {"data":dict(zip(output_ticker, output_returns)), "portfolio_return":output_port_ar}
 
 app = Flask(__name__)
 
