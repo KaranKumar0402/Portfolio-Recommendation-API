@@ -51,7 +51,7 @@ def recommend():
     df.set_index(pd.DatetimeIndex(df.Date.values), inplace = True)
     df.drop("Date", axis = 1, inplace=True)
 
-    yr = request.args.get('year')
+    yr = int(request.args.get('year'))
     if yr == 1:
         df = df['2023-05-22':'2024-05-22']
     elif yr == 3:
