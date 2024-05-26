@@ -41,7 +41,7 @@ def process_result(findf):
 
 app = Flask(__name__)
 
-@app.route('/stocks', methods=['GET'])
+@app.route('/stocks', methods=['GET', 'POST'])
 def recommend():
 
     url = "https://drive.google.com/file/d/1Moy7gFri9FPmDspWyK2rJWU4n7AJP18R/view"
