@@ -41,7 +41,7 @@ def process_result(findf):
 
 app = Flask(__name__)
 
-@app.route('/stocks', methods=['GET', 'POST'])
+@app.route('/stocks', methods=['GET'])
 def recommend():
 
     url = "https://drive.google.com/file/d/1Moy7gFri9FPmDspWyK2rJWU4n7AJP18R/view"
@@ -51,8 +51,7 @@ def recommend():
     df.set_index(pd.DatetimeIndex(df.Date.values), inplace = True)
     df.drop("Date", axis = 1, inplace=True)
 
-    data = request.get_json()
-    yr = data['year']
+    data = request.args.get('year')
     if yr == 1:
         df = df['2023-05-22':'2024-05-22']
     elif yr == 3:
